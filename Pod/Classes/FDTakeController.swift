@@ -169,7 +169,8 @@ public class FDTakeController: NSObject /* , UIImagePickerControllerDelegate, UI
     // MARK: - Localization
 
     private func localize(key: String, comment: String) -> String {
-        return NSLocalizedString(key, comment: comment)
+        let bundle = NSBundle(URL: NSBundle(forClass: self.classForCoder).resourceURL!.URLByAppendingPathComponent("FDTake.bundle")!)
+        return NSLocalizedString(key, tableName: nil, bundle: bundle!, value: key, comment: comment)
     }
 
     private func textForButtonWithTitle(title: String) -> String {
