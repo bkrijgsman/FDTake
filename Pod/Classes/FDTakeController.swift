@@ -20,7 +20,7 @@ public class FDTakeController: NSObject /* , UIImagePickerControllerDelegate, UI
     }
 
     /// Convenience method for getting a photo
-    public class func getPhotoWithCallback(getPhotoWithCallback callback: (photo: UIImage, info: [NSObject : AnyObject]) -> Void) {
+    public class func getPhotoWithCallback(getPhotoWithCallback callback: (_ photo: UIImage, _ info: [NSObject : AnyObject]) -> Void) {
         let fdTake = FDTakeController()
         fdTake.allowsVideo = false
         fdTake.didGetPhoto = callback
@@ -28,7 +28,7 @@ public class FDTakeController: NSObject /* , UIImagePickerControllerDelegate, UI
     }
 
     /// Convenience method for getting a video
-    public class func getVideoWithCallback(getVideoWithCallback callback: (video: NSURL, info: [NSObject : AnyObject]) -> Void) {
+    public class func getVideoWithCallback(getVideoWithCallback callback: (_ video: NSURL, _ info: [NSObject : AnyObject]) -> Void) {
         let fdTake = FDTakeController()
         fdTake.allowsPhoto = false
         fdTake.didGetVideo = callback
@@ -80,10 +80,10 @@ public class FDTakeController: NSObject /* , UIImagePickerControllerDelegate, UI
     // MARK: - Callbacks
 
     /// A photo was selected
-    public var didGetPhoto: ((photo: UIImage, info: [NSObject : AnyObject]) -> Void)?
+    public var didGetPhoto: ((_ photo: UIImage, _ info: [NSObject : AnyObject]) -> Void)?
 
     /// A video was selected
-    public var didGetVideo: ((video: NSURL, info: [NSObject : AnyObject]) -> Void)?
+    public var didGetVideo: ((_ video: NSURL, _ info: [NSObject : AnyObject]) -> Void)?
 
     /// The user selected did not attempt to select a photo
     public var didDeny: (() -> Void)?
